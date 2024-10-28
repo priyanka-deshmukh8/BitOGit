@@ -55,7 +55,9 @@ export default function LandingPage() {
           <h2 className="text-4xl font-bold mb-4 text-blue-800">Learn Git & Contribute to Open Source</h2>
           <p className="text-xl mb-6 text-black">Master version control and make your mark in the open source community</p>
           <div className="flex justify-center space-x-4">
-            <Button className="bg-blue-600 text-white hover:bg-blue-700 hover-lift">Start Learning</Button>
+          <Link href="https://github.com/priyanka-deshmukh8/gitlearn">
+          <Button className="bg-blue-600 text-white hover:bg-blue-700 hover-lift">Start Learning</Button>
+            </Link>
             <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 hover-lift">How to Contribute</Button>
           </div>
         </section>
@@ -125,20 +127,23 @@ export default function LandingPage() {
             Git Learn is an open-source project dedicated to helping developers learn Git and contribute to open source projects. 
             Our mission is to make version control and collaborative development accessible to everyone.
           </p>
-          <Button variant="outline" className="flex items-center border-blue-600 text-blue-600 hover:bg-blue-50 hover-lift">
-            <Github className="mr-2" />
-            View on GitHub
-          </Button>
+          <Link href="https://github.com/priyanka-deshmukh8/gitlearn">
+  <Button variant="outline" className="flex items-center border-blue-600 text-blue-600 hover:bg-blue-50 hover-lift">
+    <Github className="mr-2" />
+    View on GitHub
+  </Button>
+</Link>
         </section>
       </main>
 
       <footer className="border-t border-blue-200 animate-fadeInUp" style={{animationDelay: '1s'}}>
         <div className="container mx-auto px-4 py-6">
-          <p className="text-center text-sm text-black">
-            © 2023 Git Learn. All rights reserved. | 
-            <a href="#" className="text-blue-600 hover:underline ml-1">Privacy Policy</a> | 
-            <a href="#" className="text-blue-600 hover:underline ml-1">Terms of Service</a>
-          </p>
+        <p className="text-center text-sm text-black">
+  © 2023 Git Learn. All rights reserved. | 
+  <a href="https://github.com/priyanka-deshmukh8/gitlearn" className="text-blue-600 hover:underline ml-1">GitHub Repository</a> | 
+  <a href="#" className="text-blue-600 hover:underline ml-1">Privacy Policy</a> | 
+  <a href="#" className="text-blue-600 hover:underline ml-1">Terms of Service</a>
+</p>
         </div>
       </footer>
     </div>
