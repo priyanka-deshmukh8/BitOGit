@@ -34,21 +34,10 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white text-black font-['Poppins',sans-serif]">
-      <header className="border-b border-blue-200 animate-fadeInUp">
+      {/* <header className="border-b border-blue-200 animate-fadeInUp">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold flex items-center text-blue-600">
-            <GitBranch className="mr-2" />
-            Git Learn
-          </h1>
-          <nav>
-          <ul className="flex space-x-4">
-              <li><Link href="/learn" className="text-blue-600 hover:underline">Learn</Link></li>
-              <li><Link href="/contribute" className="text-blue-600 hover:underline">Contribute</Link></li>
-              <li><Link href="/about" className="text-blue-600 hover:underline">About</Link></li>
-            </ul>
-          </nav>
         </div>
-      </header>
+      </header> */}
 
       <main className="container mx-auto px-4 py-8">
         <section className="text-center mb-12 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
