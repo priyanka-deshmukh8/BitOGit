@@ -4,9 +4,9 @@ import { SiDiscord } from "react-icons/si";
 export default function CommunityPage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-4xl font-bold text-center text-blue-800 mb-8">Join the Git Learn Community</h2>
+      <h2 className="text-4xl font-bold text-center text-blue-800 mb-8">Join our Open Source Community</h2>
       <p className="text-center mb-6 text-xl">
-        Connect with fellow learners, ask questions, and collaborate on open-source projects. Our Discord community is open to everyone interested in mastering Git and contributing to Git Learn.
+        Connect with fellow learners, ask questions, and collaborate on open-source projects. Our Discord community is open to everyone interested in mastering Git and contributing to our various open source projects.
       </p>
       <p className="text-center mb-12">
         Whether you&apos;re a beginner or an experienced developer, we welcome you to join our community and help each other grow!

@@ -1,43 +1,78 @@
-"use client";
-import Link from 'next/link';
-import { GitBranch } from "lucide-react";
+"use client"
+
+import * as React from "react"
+import Link from 'next/link'
+import { GitBranch, Menu } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+
+const navItems = [
+  { href: "/learn", label: "Learn" },
+  { href: "/contribute", label: "Contribute" },
+  { href: "/about", label: "About" },
+  { href: "/community", label: "Community" },
+]
 
 export default function Navbar() {
+  const [isOpen, setIsOpen] = React.useState(false)
+
   return (
-    <header className="border-b border-blue-200 bg-white">
+    <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 to-black">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        <Link href="/" className="text-2xl font-bold flex items-center text-blue-600">
-          <GitBranch className="mr-2" />
-          Git Learn
+        <Link href="/" className="text-2xl font-bold flex items-center text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+          <GitBranch className="mr-2 text-gray-400" />
+          BitOGit
         </Link>
 
-        {/* Navigation Links */}
-        <nav>
+        {/* Desktop Navigation Links */}
+        <nav className="hidden md:block">
           <ul className="flex space-x-4">
-            <li>
-              <Link href="/learn" className="text-blue-600 hover:underline">
-                Learn
-              </Link>
-            </li>
-            <li>
-              <Link href="/contribute" className="text-blue-600 hover:underline">
-                Contribute
-              </Link>
-            </li>
-            <li>
-              <Link href="/about" className="text-blue-600 hover:underline">
-                About
-              </Link>
-            </li>
-            <li>
-              <Link href="/community" className="text-blue-600 hover:underline">
-                Community
-              </Link>
-            </li>
+            {navItems.map((item) => (
+              <li key={item.href}>
+                <Link 
+                  href={item.href} 
+                  className="text-gray-300 font-bold hover:text-gray-100 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
+
+        {/* Mobile Menu Button */}
+        <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <SheetTrigger asChild>
+            <Button 
+              variant="ghost" 
+              className="md:hidden font-bold text-gray-300 hover:text-gray-100"
+              aria-label="Open menu"
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900 border-gray-800">
+            <nav className="flex flex-col space-y-4 mt-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-gray-300 font-bold hover:text-gray-100 transition-colors text-lg"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </nav>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
-  );
+  )
 }

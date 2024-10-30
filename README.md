@@ -1,4 +1,50 @@
+# BitOGit
+
+**BitOGit** is an open-source project dedicated to helping developers learn Git and contribute to open-source projects. Our mission is to make version control and collaborative development accessible to everyone. If you’re passionate about version control, open-source, or simply want to contribute to a meaningful project, we welcome you to join us!
+
+# Contributors
+
+- [@priyanka-deshmukh8](https://github.com/priyanka-deshmukh8) - Documentation and code improvements
+- [@arpitjain45](https://github.com/arpitjain45) - Added feature X
+- [@username3](https://github.com/username3) - Fixed bugs, optimized performance
+
+## 🌟 Project Overview
+
+This website provides resources for:
+- **Git Basics** – Learn the fundamentals of Git, including setting it up, basic commands, and understanding branching and merging.
+- **Collaborative Workflows** – Master the essentials of collaborating with others on Git, from pull requests to resolving conflicts.
+- **How to Contribute** – Step-by-step instructions on making your first contribution to this repository.
+
+**Live Website:** [BitOGit](https://github.com/priyanka-deshmukh8/gitlearn)
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js and npm installed on your system
+- Familiarity with Git and version control basics
+
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/priyanka-deshmukh8/gitlearn.git
+   cd gitlearn
+
+
+2. 	Install the dependencies
+   ```bash
+   npm install
+```
+3. Run the development server:
+ ```bash
+   npm run dev
+```
+
+
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+
 
 ## Getting Started
 

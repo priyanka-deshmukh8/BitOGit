@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 export default function ContributePage() {
   return (
     <div className="container mx-auto px-4 py-8">
-      <h2 className="text-4xl font-bold text-center text-blue-800 mb-8">Contribute to Git Learn</h2>
+      <h2 className="text-4xl font-bold text-center text-blue-800 mb-8">Contribute to BitOGit</h2>
       <p className="text-center mb-12 text-xl">
-        Help us improve Git Learn by contributing your expertise, ideas, and skills!
+        Help us improve BitOGitby contributing your expertise, ideas, and skills!
       </p>
 
       <section className="mb-12">

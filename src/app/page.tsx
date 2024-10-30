@@ -1,138 +1,204 @@
-"use client";
+"use client"
+
+import * as React from "react"
+import Link from "next/link"
+import { motion } from "framer-motion"
+import { Search, BookOpen, Users, Github, Code, Star, GitFork } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { GitBranch, BookOpen, Users, Github } from "lucide-react"
-import { useEffect } from "react"
-import Link from 'next/link'
+import { Input } from "@/components/ui/input"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { span } from "framer-motion/client"
 
 export default function LandingPage() {
-  useEffect(() => {
-    // Add Google Fonts
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Roboto+Mono&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
-
-    // Add custom styles
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fadeInUp { animation: fadeInUp 0.6s ease-out; }
-      .hover-lift { transition: transform 0.3s ease; }
-      .hover-lift:hover { transform: translateY(-5px); }
-    `;
-    document.head.appendChild(style);
-
-    return () => {
-      document.head.removeChild(link);
-      document.head.removeChild(style);
-    };
-  }, []);
-
   return (
-    <div className="min-h-screen bg-white text-black font-['Poppins',sans-serif]">
-      {/* <header className="border-b border-blue-200 animate-fadeInUp">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        </div>
-      </header> */}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-300">
+      <header className="container mx-auto px-4 py-6">
+        <nav className="flex justify-between items-center">
+          {/* <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">BitOGit</h1> */}
+          {/* <div className="space-x-4">
+            <Button variant="ghost" className="text-gray-300 hover:text-gray-100">About</Button>
+            <Button variant="ghost" className="text-gray-300 hover:text-gray-100">Projects</Button>
+            <Button variant="ghost" className="text-gray-300 hover:text-gray-100">Learn</Button>
+            <Button variant="ghost" className="text-gray-300 hover:text-gray-100">Community</Button>
+          </div> */}
+        </nav>
+      </header>
 
-      <main className="container mx-auto px-4 py-8">
-        <section className="text-center mb-12 animate-fadeInUp" style={{animationDelay: '0.2s'}}>
-          <h2 className="text-4xl font-bold mb-4 text-blue-800">Learn Git & Contribute to Open Source</h2>
-          <p className="text-xl mb-6 text-black">Master version control and make your mark in the open source community</p>
-          <div className="flex justify-center space-x-4">
-          <Link href="https://github.com/priyanka-deshmukh8/gitlearn">
-          <Button className="bg-blue-600 text-white hover:bg-blue-700 hover-lift">Start Learning</Button>
-            </Link>
-            <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-50 hover-lift">How to Contribute</Button>
+      <main className="container mx-auto px-4 py-8 space-y-16">
+        {/* Hero Section */}
+        <section className="text-center space-y-6">
+          <motion.h2 
+            className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 lg:text-5xl"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Kickstart Your Open Source Journey
+          </motion.h2>
+          <motion.p 
+            className="text-xl text-gray-400 max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            BitOGit empowers students and professionals to explore, contribute, and grow within the open-source community.
+          </motion.p>
+          <motion.div 
+            className="flex flex-wrap justify-center gap-4"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <Button asChild size="lg" className="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800 text-gray-100">
+              <Link href="/signup">Get Started</Link>
+            </Button>
+            <Button variant="outline" size="lg" className="border-gray-600 text-gray-900 hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-300">
+              Learn More
+            </Button>
+          </motion.div>
+        </section>
+
+        {/* Project Directory Preview */}
+        <section className="space-y-6">
+          <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+            Discover Projects
+          </h3>
+          <div className="flex flex-col md:flex-row gap-4 mb-8">
+            <div className="flex-grow">
+              <Input
+                type="text"
+                placeholder="Search projects..."
+                className="w-full bg-gray-800 text-gray-100 border-gray-700"
+              />
+            </div>
+            <Button className="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800 text-gray-100">
+              <Search className="mr-2 h-4 w-4" /> Search
+            </Button>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[1, 2, 3].map((project) => (
+              <Card key={project} className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
+                <CardHeader>
+                  <CardTitle className="text-gray-100">Rizz</CardTitle>
+                  <CardDescription className="text-gray-400">A Gen-z Slange dictionary Application</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="flex items-center gap-2 mb-2">
+                    <Code className="w-4 h-4 text-gray-400" />
+                    <span className="text-gray-300">JavaScript</span>
+                  </div>
+                  <Badge variant="secondary" className="bg-gray-700 text-gray-300">
+                    Beginner Friendly 
+                  </Badge>
+                </CardContent>
+                <CardFooter className="flex justify-between">
+                  <div className="flex items-center gap-2">
+                    <Star className="w-4 h-4 text-yellow-500" />
+                    <span className="text-gray-300">123</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <GitFork className="w-4 h-4 text-gray-400" />
+                    <span className="text-gray-300">45</span>
+                  </div>
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <Button variant="outline" className="border-gray-600 text-gray-900 hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-300">
+              View All Projects
+            </Button>
           </div>
         </section>
 
-        <section id="learn" className="mb-12 animate-fadeInUp" style={{animationDelay: '0.4s'}}>
-          <h3 className="text-2xl font-bold mb-4 text-blue-800">Learning Resources</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="border-blue-200 hover-lift">
+        {/* Learning Resources */}
+        <section className="space-y-6">
+          <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+            Learning Resources
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
               <CardHeader>
-                <CardTitle className="flex items-center text-blue-600">
-                  <BookOpen className="mr-2" />
+                <CardTitle className="flex items-center gap-2 text-gray-100">
+                  <BookOpen className="h-5 w-5" />
                   Git Basics
                 </CardTitle>
-                <CardDescription className="text-black">Learn the fundamentals of Git</CardDescription>
+                <CardDescription className="text-gray-400">Master the fundamentals of Git</CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside text-black font-['Roboto_Mono',monospace]">
-                  <li>Introduction to version control</li>
-                  <li>Setting up Git</li>
-                  <li>Basic Git commands</li>
-                  <li>Branching and merging</li>
-                </ul>
+              <CardContent className="space-y-2 text-sm text-gray-300">
+                <p>• Introduction to version control</p>
+                <p>• Setting up Git</p>
+                <p>• Basic Git commands</p>
+                <p>• Branching and merging</p>
               </CardContent>
             </Card>
-            <Card className="border-blue-200 hover-lift">
+            <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
               <CardHeader>
-                <CardTitle className="flex items-center text-blue-600">
-                  <Users className="mr-2" />
-                  Collaborative Workflows
+                <CardTitle className="flex items-center gap-2 text-gray-100">
+                  <Github className="h-5 w-5" />
+                  Open Source Contribution Guide
                 </CardTitle>
-                <CardDescription className="text-black">Master working with others using Git</CardDescription>
+                <CardDescription className="text-gray-400">Learn how to contribute effectively</CardDescription>
               </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside text-black font-['Roboto_Mono',monospace]">
-                  <li>Pull requests</li>
-                  <li>Code reviews</li>
-                  <li>Resolving conflicts</li>
-                  <li>Best practices for collaboration</li>
-                </ul>
+              <CardContent className="space-y-2 text-sm text-gray-300">
+                <p>• Finding projects to contribute to</p>
+                <p>• Understanding project guidelines</p>
+                <p>• Creating pull requests</p>
+                <p>• Collaborating with maintainers</p>
               </CardContent>
             </Card>
           </div>
+          <div className="text-center mt-8">
+            <Button variant="outline" className="border-gray-600 text-gray-900 hover:bg-gradient-to-r hover:from-gray-800 hover:to-gray-300">
+              Explore All Resources
+            </Button>
+          </div>
         </section>
 
-        <section id="contribute" className="mb-12 animate-fadeInUp" style={{animationDelay: '0.6s'}}>
-          <h3 className="text-2xl font-bold mb-4 text-blue-800">How to Contribute</h3>
-          <Card className="border-blue-200 hover-lift">
-            <CardContent className="prose max-w-none text-black">
-              <ol className="list-decimal list-inside font-['Roboto_Mono',monospace]">
-                <li>Fork the repository on GitHub</li>
-                <li>Clone your fork locally</li>
-                <li>Create a new branch for your contribution</li>
-                <li>Make your changes and commit them</li>
-                <li>Push your changes to your fork</li>
-                <li>Open a pull request to the main repository</li>
-              </ol>
-              <p className="mt-4">
-                Remember to read our contribution guidelines before submitting your pull request!
-              </p>
+        {/* Community Engagement */}
+        <section className="space-y-6">
+          <h3 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+            Join Our Community
+          </h3>
+          <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2 text-gray-100">
+                <Users className="h-5 w-5" />
+                Connect and Grow
+              </CardTitle>
+              <CardDescription className="text-gray-400">Engage with fellow developers and mentors</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <p className="text-gray-300">Join our vibrant community to:</p>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
+                <li>Participate in discussions</li>
+                <li>Find mentorship opportunities</li>
+                <li>Collaborate on projects</li>
+                <li>Attend virtual meetups and workshops</li>
+              </ul>
             </CardContent>
+            <CardFooter>
+              <Button className="w-full bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-600 hover:to-gray-800 text-gray-100">
+                Join Community
+              </Button>
+            </CardFooter>
           </Card>
-        </section>
-
-        <section id="about" className="mb-12 animate-fadeInUp" style={{animationDelay: '0.8s'}}>
-          <h3 className="text-2xl font-bold mb-4 text-blue-800">About Git Learn</h3>
-          <p className="mb-4 text-black">
-            Git Learn is an open-source project dedicated to helping developers learn Git and contribute to open source projects. 
-            Our mission is to make version control and collaborative development accessible to everyone.
-          </p>
-          <Link href="https://github.com/priyanka-deshmukh8/gitlearn">
-  <Button variant="outline" className="flex items-center border-blue-600 text-blue-600 hover:bg-blue-50 hover-lift">
-    <Github className="mr-2" />
-    View on GitHub
-  </Button>
-</Link>
         </section>
       </main>
 
-      <footer className="border-t border-blue-200 animate-fadeInUp" style={{animationDelay: '1s'}}>
+      <footer className="border-t border-gray-800 mt-12 bg-gradient-to-b from-gray-900 to-black">
         <div className="container mx-auto px-4 py-6">
-        <p className="text-center text-sm text-black">
-  © 2023 Git Learn. All rights reserved. | 
-  <a href="https://github.com/priyanka-deshmukh8/gitlearn" className="text-blue-600 hover:underline ml-1">GitHub Repository</a> | 
-  <a href="#" className="text-blue-600 hover:underline ml-1">Privacy Policy</a> | 
-  <a href="#" className="text-blue-600 hover:underline ml-1">Terms of Service</a>
-</p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500">© {new Date().getFullYear()} BitOGit. All rights reserved.</p>
+            <nav className="flex gap-4">
+              <Link href="#" className="text-gray-500 hover:text-gray-300">About</Link>
+              <Link href="#" className="text-gray-500 hover:text-gray-300">Privacy</Link>
+              <Link href="#" className="text-gray-500 hover:text-gray-300">Terms</Link>
+              <Link href="#" className="text-gray-500 hover:text-gray-300">Contact</Link>
+            </nav>
+          </div>
         </div>
       </footer>
     </div>
