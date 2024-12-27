@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from 'next/link'
-import { GitBranch, Menu } from "lucide-react"
+import { GitBranch, Menu } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
 import {
@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/sheet"
 
 const navItems = [
+  { href: "/", label: "Home" },
   { href: "/learn", label: "Learn" },
   { href: "/contribute", label: "Contribute" },
   { href: "/about", label: "About" },
@@ -22,10 +23,10 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false)
 
   return (
-    <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 to-black">
+    <header className="border-b border-gray-800 bg-gradient-to-r from-gray-900 to-black text-gray-300">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo Section */}
-        <Link href="/" className="text-2xl font-bold flex items-center text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+        <Link href="/" className="text-2xl font-bold flex items-center text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 hover:from-gray-200 hover:to-gray-300 transition-colors">
           <GitBranch className="mr-2 text-gray-400" />
           BitOGit
         </Link>
@@ -37,7 +38,7 @@ export default function Navbar() {
               <li key={item.href}>
                 <Link 
                   href={item.href} 
-                  className="text-gray-300 font-bold hover:text-gray-100 transition-colors"
+                  className="text-gray-300 font-bold hover:text-gray-100 transition-colors px-3 py-2 rounded-md hover:bg-gray-800"
                 >
                   {item.label}
                 </Link>
@@ -57,13 +58,13 @@ export default function Navbar() {
               <Menu className="h-6 w-6" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900 border-gray-800">
+          <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-gray-900 border-gray-800 text-gray-300">
             <nav className="flex flex-col space-y-4 mt-8">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-gray-300 font-bold hover:text-gray-100 transition-colors text-lg"
+                  className="text-gray-300 font-bold hover:text-gray-100 transition-colors text-lg block py-2 px-4 rounded-md hover:bg-gray-800"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
@@ -76,3 +77,4 @@ export default function Navbar() {
     </header>
   )
 }
+
