@@ -5,8 +5,7 @@
 # Contributors
 
 - [@priyanka-deshmukh8](https://github.com/priyanka-deshmukh8) - Documentation and code improvements
-- [@arpitjain45](https://github.com/arpitjain45) - Added feature X
-- [@username3](https://github.com/username3) - Fixed bugs, optimized performance
+- 
 
 ## 🌟 Project Overview
 
