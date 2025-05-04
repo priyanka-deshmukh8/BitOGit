@@ -3,12 +3,18 @@
 import * as React from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Search, BookOpen, Users, Github, Code, Star, GitFork, ExternalLink } from 'lucide-react'
+import { Code, Star, GitFork, ExternalLink } from 'lucide-react'
 
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
+import { 
+  Card, 
+  CardHeader, 
+  CardTitle, 
+  CardDescription, 
+  CardContent, 
+  CardFooter 
+} from "@/components/ui/card"
 
 const featuredProjects = [
   {
@@ -75,6 +81,9 @@ export default function LandingPage() {
           </Button>
           <Button asChild variant="outline" size="lg" className="border-gray-700 hover:bg-gray-800 text-gray-700">
             <Link href="/contribute">Contribute</Link>
+          </Button>
+          <Button asChild size="lg" className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
+            <Link href="/community">Play Git Learning Game</Link>
           </Button>
         </motion.div>
       </section>

@@ -3,7 +3,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { GitBranch, GitPullRequest, Book, Star, GitFork, ExternalLink } from "lucide-react";
+import { GitBranch, GitPullRequest, Book, Star, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 

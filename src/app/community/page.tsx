@@ -5,6 +5,7 @@ import { SiDiscord } from "react-icons/si";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
+import GitGame from "@/components/GitGame";
 
 export default function CommunityPage() {
   return (
@@ -62,10 +63,19 @@ export default function CommunityPage() {
                 <li>Use appropriate channels for different topics</li>
                 <li>Avoid spamming or self-promotion</li>
                 <li>Encourage constructive feedback and collaboration</li>
-                <li>Follow the server rules and Discord's Community Guidelines</li>
+                <li>Follow the server rules and Discord&apos;s Community Guidelines</li>
               </ul>
             </CardContent>
           </Card>
+        </motion.section>
+
+        <motion.section 
+          className="mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <GitGame />
         </motion.section>
       </div>
     </div>

@@ -29,7 +29,7 @@ export default function LearnPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Discover essential Git skills, collaborate effectively, and deepen your understanding of open source development. From beginner to advanced, we've got you covered.
+          Discover essential Git skills, collaborate effectively, and deepen your understanding of open source development. From beginner to advanced, we&apos;ve got you covered.
         </motion.p>
 
         <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -48,7 +48,7 @@ export default function LearnPage() {
                 <ul className="space-y-2 text-gray-300">
                   <li className="flex items-start gap-2">
                     <GitCommit className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                    <span><strong>Introduction to Version Control</strong> - Understand Git's role in modern development</span>
+                    <span><strong>Introduction to Version Control</strong> - Understand Git&apos;s role in modern development</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <GitBranch className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
