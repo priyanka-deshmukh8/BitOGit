@@ -39,7 +39,7 @@ export default function CommunityPage() {
                   className="bg-[#5865F2] hover:bg-[#4752C4] text-white flex items-center space-x-2"
                   asChild
                 >
-                  <Link href="https://discord.gg/MngukFYq" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://discord.gg/ax2R7bxq" target="_blank" rel="noopener noreferrer">
                     <SiDiscord className="mr-2 h-5 w-5" />
                     <span>Join Our Discord Community</span>
                   </Link>

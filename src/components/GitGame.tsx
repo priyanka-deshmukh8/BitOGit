@@ -1,61 +1,56 @@
 import React, { useState } from 'react';
+import GitTerminal from './GitTerminal';
 
-const questions = [
+const levels = [
   {
-    question: "What command is used to initialize a new Git repository?",
-    options: ["git init", "git start", "git create", "git new"],
-    answer: "git init",
+    id: 1,
+    title: "Introduction to Git",
+    description: "Learn the basics of Git by initializing a repository and making your first commit.",
+    goal: "Initialize a Git repository and commit a file.",
+    commands: ["git init", "git add .", "git commit -m 'Initial commit'"],
   },
   {
-    question: "How do you stage changes for commit?",
-    options: ["git add", "git stage", "git commit", "git push"],
-    answer: "git add",
+    id: 2,
+    title: "Branching Basics",
+    description: "Explore branching by creating and switching branches.",
+    goal: "Create a new branch and switch to it.",
+    commands: ["git branch new-branch", "git checkout new-branch"],
   },
-  // Add more questions as needed
+  // Add more levels as needed
 ];
 
 const GitGame = () => {
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [score, setScore] = useState(0);
-  const [showScore, setShowScore] = useState(false);
+  const [currentLevel, setCurrentLevel] = useState(0);
+  const [isLevelComplete, setIsLevelComplete] = useState(false);
 
-  const handleAnswerOptionClick = (selectedOption: string) => {
-    if (selectedOption === questions[currentQuestionIndex].answer) {
-      setScore(score + 1);
-    }
+  const handleLevelComplete = () => {
+    setIsLevelComplete(true);
+    // Optionally, provide feedback or rewards
+  };
 
-    const nextQuestion = currentQuestionIndex + 1;
-    if (nextQuestion < questions.length) {
-      setCurrentQuestionIndex(nextQuestion);
+  const nextLevel = () => {
+    if (currentLevel < levels.length - 1) {
+      setCurrentLevel(currentLevel + 1);
+      setIsLevelComplete(false);
     } else {
-      setShowScore(true);
+      // Handle game completion
+      alert("Congratulations! You've completed all levels!");
     }
   };
 
   return (
     <div className="game-container">
-      <h2 className="text-2xl font-bold mb-4">Learn Git with Our Interactive Game</h2>
-      {showScore ? (
-        <div className="score-section">
-          You scored {score} out of {questions.length}
-        </div>
-      ) : (
-        <>
-          <div className="question-section">
-            <div className="question-text">{questions[currentQuestionIndex].question}</div>
-          </div>
-          <div className="answer-section">
-            {questions[currentQuestionIndex].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleAnswerOptionClick(option)}
-                className="option-button"
-              >
-                {option}
-              </button>
-            ))}
-          </div>
-        </>
+      <h2 className="text-2xl font-bold mb-4">Learn Git with Our Interactive Terminal</h2>
+      <div className="level-info mb-4">
+        <h3 className="text-xl font-semibold">{levels[currentLevel].title}</h3>
+        <p className="text-gray-400">{levels[currentLevel].description}</p>
+        <p className="text-gray-400">Goal: {levels[currentLevel].goal}</p>
+      </div>
+      <GitTerminal onCommandExecute={handleLevelComplete} />
+      {isLevelComplete && (
+        <button onClick={nextLevel} className="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
+          Next Level
+        </button>
       )}
     </div>
   );

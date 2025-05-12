@@ -83,7 +83,7 @@ export default function LandingPage() {
             <Link href="/contribute">Contribute</Link>
           </Button>
           <Button asChild size="lg" className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
-            <Link href="/community">Play Git Learning Game</Link>
+            <Link href="/game">Play Git Learning Game</Link>
           </Button>
         </motion.div>
       </section>
