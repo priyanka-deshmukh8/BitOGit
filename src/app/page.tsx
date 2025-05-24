@@ -85,6 +85,9 @@ export default function LandingPage() {
           <Button asChild size="lg" className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
             <Link href="/game">Play Git Learning Game</Link>
           </Button>
+          <Button asChild size="lg" className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
+            <Link href="/hackathons">View Hackathons</Link>
+          </Button>
         </motion.div>
       </section>
 

@@ -1,20 +1,22 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 interface GitTerminalProps {
-  onCommandExecute: () => void;
+  onCommandExecute: (command: string) => void;
 }
 
 const GitTerminal: React.FC<GitTerminalProps> = ({ onCommandExecute }) => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState<string[]>([]);
   const terminalRef = useRef<HTMLDivElement>(null);
+  const [command, setCommand] = useState('');
 
   const handleCommand = (command: string) => {
     // Simulate command execution and update output
     const newOutput = [...output, `$ ${command}`, 'Command executed: ' + command];
     setOutput(newOutput);
     setInput('');
-    onCommandExecute(); // Notify the game component
+    setCommand(command);
+    onCommandExecute(command); // Notify the game component
   };
 
   const handleKeyPress = (event: React.KeyboardEvent) => {
@@ -47,6 +49,7 @@ const GitTerminal: React.FC<GitTerminalProps> = ({ onCommandExecute }) => {
           autoFocus
         />
       </div>
+      {command && <p className="mt-2 text-green-300">Last command: {command}</p>}
     </div>
   );
 };

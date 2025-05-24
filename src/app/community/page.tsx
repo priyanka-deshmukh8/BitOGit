@@ -5,7 +5,6 @@ import { SiDiscord } from "react-icons/si";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import GitGame from "@/components/GitGame";
 
 export default function CommunityPage() {
   return (
@@ -39,7 +38,7 @@ export default function CommunityPage() {
                   className="bg-[#5865F2] hover:bg-[#4752C4] text-white flex items-center space-x-2"
                   asChild
                 >
-                  <Link href="https://discord.gg/ax2R7bxq" target="_blank" rel="noopener noreferrer">
+                  <Link href="https://discord.gg/68FqnUFfMf" target="_blank" rel="noopener noreferrer">
                     <SiDiscord className="mr-2 h-5 w-5" />
                     <span>Join Our Discord Community</span>
                   </Link>
@@ -75,7 +74,6 @@ export default function CommunityPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <GitGame />
         </motion.section>
       </div>
     </div>
