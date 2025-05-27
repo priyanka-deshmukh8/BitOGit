@@ -126,7 +126,7 @@ export default function Navbar() {
                 ))}
                 <div className="pt-4 mt-4 border-t border-gray-800">
                   <a
-                    href="https://github.com/bit0git"
+                    href="https://github.com/priyanka-deshmukh8/BitOGit"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center px-4 py-3 text-gray-300 hover:text-gray-100 hover:bg-gray-800/30 rounded-md transition-colors"
