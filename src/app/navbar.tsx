@@ -72,7 +72,7 @@ export default function Navbar() {
               asChild
             >
               <a 
-                href="https://github.com/bit0git" 
+                href="https://github.com/priyanka-deshmukh8/BitOGit" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="GitHub"
