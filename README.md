@@ -1,6 +1,6 @@
-# bitOgit
+# bit0git
 
-**bitOgit** is an open-source project dedicated to helping developers learn Git and contribute to open-source projects. Our mission is to make version control and collaborative development accessible to everyone. If you’re passionate about version control, open-source, or simply want to contribute to a meaningful project, we welcome you to join us!
+**bit0git** is an open-source project dedicated to helping developers learn Git and contribute to open-source projects. Our mission is to make version control and collaborative development accessible to everyone. If you’re passionate about version control, open-source, or simply want to contribute to a meaningful project, we welcome you to join us!
 
 # Contributors
 
@@ -14,7 +14,7 @@ This website provides resources for:
 - **Collaborative Workflows** – Master the essentials of collaborating with others on Git, from pull requests to resolving conflicts.
 - **How to Contribute** – Step-by-step instructions on making your first contribution to this repository.
 
-**Live Website:** [bitOgit](https://github.com/priyanka-deshmukh8/gitlearn)
+**Live Website:** [bit0git](https://github.com/priyanka-deshmukh8/gitlearn)
 
 ---
 

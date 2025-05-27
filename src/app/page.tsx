@@ -18,10 +18,10 @@ import {
 
 const featuredProjects = [
   {
-    name: "bitOgit",
+    name: "bit0git",
     description: "An open-source initiative dedicated to making version control accessible to everyone.",
     tech: "Next.js, TypeScript, Tailwind",
-    url: "https://github.com/priyanka-deshmukh8/bitOgit.git",
+    url: "https://github.com/priyanka-deshmukh8/bit0git.git",
     stars: 45,
     forks: 12,
     language: "TypeScript",
@@ -68,7 +68,7 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          bitOgit empowers students and professionals to explore, contribute, and grow within the open-source community.
+          bit0git empowers students and professionals to explore, contribute, and grow within the open-source community.
         </motion.p>
         <motion.div 
           className="flex flex-wrap justify-center gap-4"

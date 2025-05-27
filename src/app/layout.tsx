@@ -8,28 +8,28 @@ import Navbar from "@/app/navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "bitOgit - Master Git and Open Source",
+  title: "bit0git - Master Git and Open Source",
   description: "Learn Git, contribute to open source, and grow your development skills with interactive tutorials and real-world projects.",
   keywords: ["Git", "Open Source", "Learning", "Development", "Version Control", "Programming", "Web Development", "Software Engineering"],
-  authors: [{ name: "bitOgit Team" }],
+  authors: [{ name: "bit0git Team" }],
   openGraph: {
-    title: "bitOgit - Master Git and Open Source",
+    title: "bit0git - Master Git and Open Source",
     description: "Learn Git, contribute to open source, and grow your development skills with interactive tutorials and real-world projects.",
     type: "website",
     locale: "en_US",
-    siteName: "bitOgit",
+    siteName: "bit0git",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "bitOgit - Master Git and Open Source",
+        alt: "bit0git - Master Git and Open Source",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "bitOgit - Master Git and Open Source",
+    title: "bit0git - Master Git and Open Source",
     description: "Learn Git, contribute to open source, and grow your development skills with interactive tutorials and real-world projects.",
     images: ["/og-image.png"],
   },
@@ -62,7 +62,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 <div className="container mx-auto px-4 py-8">
                   <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div className="col-span-1 md:col-span-2">
-                      <h3 className="text-xl font-bold text-gray-100 mb-4">bitOgit</h3>
+                      <h3 className="text-xl font-bold text-gray-100 mb-4">bit0git</h3>
                       <p className="text-gray-400 mb-4">
                         Empowering developers to master Git and contribute to open source through interactive learning and real-world projects.
                       </p>
@@ -86,12 +86,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     </div>
                   </div>
                   <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-500">© {new Date().getFullYear()} bitOgit. All rights reserved.</p>
+                    <p className="text-gray-500">© {new Date().getFullYear()} bit0git. All rights reserved.</p>
                     <div className="flex items-center space-x-4">
-                      <a href="https://github.com/bitOgit" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-300">
+                      <a href="https://github.com/bit0git" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-300">
                         GitHub
                       </a>
-                      <a href="https://discord.gg/bitOgit" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-300">
+                      <a href="https://discord.gg/bit0git" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-gray-300">
                         Discord
                       </a>
                     </div>
