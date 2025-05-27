@@ -18,10 +18,10 @@ import {
 
 const featuredProjects = [
   {
-    name: "BitOGit",
+    name: "bitOgit",
     description: "An open-source initiative dedicated to making version control accessible to everyone.",
     tech: "Next.js, TypeScript, Tailwind",
-    url: "https://github.com/priyanka-deshmukh8/BitOGit.git",
+    url: "https://github.com/priyanka-deshmukh8/bitOgit.git",
     stars: 45,
     forks: 12,
     language: "TypeScript",
@@ -68,7 +68,7 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          BitOGit empowers students and professionals to explore, contribute, and grow within the open-source community.
+          bitOgit empowers students and professionals to explore, contribute, and grow within the open-source community.
         </motion.p>
         <motion.div 
           className="flex flex-wrap justify-center gap-4"
@@ -83,7 +83,7 @@ export default function LandingPage() {
             <Link href="/contribute">Contribute</Link>
           </Button>
           <Button asChild size="lg" className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
-            <Link href="/game">Play Git Learning Game</Link>
+            <Link href="/git-game">Play Git Learning Game</Link>
           </Button>
           <Button asChild size="lg" className="bg-gray-700 hover:bg-gray-800 text-white font-bold py-2 px-4 rounded">
             <Link href="/hackathons">View Hackathons</Link>

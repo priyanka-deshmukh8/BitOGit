@@ -9,10 +9,10 @@ import Link from "next/link";
 
 const featuredProjects = [
   {
-    name: "BitOGit",
+    name: "bitOgit",
     description: "An open-source initiative dedicated to making version control accessible to everyone.",
     tech: "Next.js, TypeScript, Tailwind",
-    url: "https://github.com/priyanka-deshmukh8/BitOGit.git",
+    url: "https://github.com/priyanka-deshmukh8/bitOgit.git",
     difficulty: "Beginner Friendly",
     tags: ["documentation", "ui-enhancement", "learning-resources"]
   },
@@ -44,7 +44,7 @@ export default function ContributePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Contribute to BitOGit
+          Contribute to bitOgit
         </motion.h2>
         
         <motion.p 
@@ -53,7 +53,7 @@ export default function ContributePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Help us improve BitOGit by contributing your expertise, ideas, and skills!
+          Help us improve bitOgit by contributing your expertise, ideas, and skills!
         </motion.p>
 
         <motion.section
