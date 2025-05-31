@@ -3,9 +3,26 @@
 
 import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
-import { GitBranch, GitPullRequest, Book, Star, ExternalLink } from "lucide-react";
+import { GitBranch, GitPullRequest, Book, Star, ExternalLink, 
+  Github, Code2, Users, Award, Zap, Heart, Globe, 
+  GitCommit, GitMerge, Terminal, PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+};
+
+const staggerContainer = {
+  animate: {
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
 
 const featuredProjects = [
   {
@@ -37,46 +54,88 @@ const featuredProjects = [
 export default function ContributePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-300">
-      <div className="container mx-auto px-4 py-8">
-        <motion.h2 
-          className="text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 mb-8"
+      <div className="container mx-auto px-4 py-12 space-y-16">
+        {/* Hero Section */}
+        <motion.section 
+          className="text-center space-y-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Contribute to bit0git
-        </motion.h2>
-        
-        <motion.p 
-          className="text-center mb-12 text-xl text-gray-400"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Help us improve bit0git by contributing your expertise, ideas, and skills!
-        </motion.p>
+          <div className="inline-block p-2 px-4 rounded-full bg-gray-800/50 border border-gray-700 mb-4">
+            <GitBranch className="w-6 h-6 inline-block mr-2 text-blue-400" />
+            <span className="text-sm font-medium text-gray-300">Open Source</span>
+          </div>
+          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-blue-400 to-purple-400">
+            Contribute to bit0git
+          </h1>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+            Help us improve bit0git by contributing your expertise, ideas, and skills. Together, we can make version control accessible to everyone.
+          </p>
+        </motion.section>
 
-        <motion.section
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
+        {/* Quick Stats */}
+        <motion.section 
+          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
         >
-          <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400 mb-8">
-            Featured Projects
-          </h2>
+          {[
+            { icon: <GitPullRequest className="h-6 w-6 text-blue-400" />, label: "Open PRs", value: "25+" },
+            { icon: <Users className="h-6 w-6 text-green-400" />, label: "Contributors", value: "50+" },
+            { icon: <Star className="h-6 w-6 text-yellow-400" />, label: "GitHub Stars", value: "100+" },
+            { icon: <Code2 className="h-6 w-6 text-purple-400" />, label: "Projects", value: "10+" }
+          ].map((stat, index) => (
+            <motion.div 
+              key={index} 
+              variants={fadeInUp}
+              className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 text-center border border-gray-700 hover:border-gray-600 transition-colors"
+            >
+              <div className="flex justify-center mb-3">{stat.icon}</div>
+              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+                {stat.value}
+              </div>
+              <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.section>
+
+        {/* Featured Projects - Enhanced */}
+        <motion.section
+          className="space-y-8"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
+        >
+          <div className="flex justify-between items-center">
+            <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+              Featured Projects
+            </h2>
+            <Button 
+              variant="outline" 
+              className="border-gray-700 hover:border-gray-600"
+              asChild
+            >
+              <Link href="https://github.com/priyanka-deshmukh8/BitOGit/issues" target="_blank" rel="noopener noreferrer">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Submit Project
+              </Link>
+            </Button>
+          </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredProjects.map((project, index) => (
               <motion.div
                 key={project.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 * index }}
+                variants={fadeInUp}
               >
-                <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg h-full flex flex-col">
+                <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg h-full flex flex-col hover:border-gray-600 transition-colors">
                   <CardHeader>
-                    <CardTitle className="text-gray-100 flex items-center justify-between">
-                      <span>{project.name}</span>
+                    <div className="flex items-center justify-between">
+                      <CardTitle className="text-gray-100 flex items-center gap-2">
+                        <Github className="h-5 w-5 text-gray-400" />
+                        {project.name}
+                      </CardTitle>
                       <Link 
                         href={project.url} 
                         target="_blank" 
@@ -85,40 +144,42 @@ export default function ContributePage() {
                       >
                         <ExternalLink className="h-5 w-5" />
                       </Link>
-                    </CardTitle>
-                    <CardDescription className="text-gray-400">
+                    </div>
+                    <CardDescription className="text-gray-400 mt-2">
                       {project.description}
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow">
                     <div className="space-y-4">
                       <div className="flex items-center gap-2">
-                        <GitBranch className="h-4 w-4 text-blue-400" />
+                        <Code2 className="h-4 w-4 text-blue-400" />
                         <span className="text-sm text-gray-300">{project.tech}</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map(tag => (
-                          <span 
+                          <Badge 
                             key={tag}
-                            className="text-xs px-2 py-1 rounded-full bg-gray-700 text-gray-300"
+                            variant="secondary"
+                            className="bg-gray-700/50 text-gray-300 hover:bg-gray-700"
                           >
                             {tag}
-                          </span>
+                          </Badge>
                         ))}
                       </div>
                     </div>
                   </CardContent>
-                  <CardFooter className="flex justify-between items-center border-t border-gray-700 mt-4">
-                    <span className="text-sm text-gray-400">
-                      <Star className="h-4 w-4 inline mr-1" />
+                  <CardFooter className="flex justify-between items-center border-t border-gray-700 mt-4 pt-4">
+                    <Badge variant="outline" className="border-gray-700">
+                      <Star className="h-3 w-3 mr-1" />
                       {project.difficulty}
-                    </span>
+                    </Badge>
                     <Button 
                       variant="ghost" 
-                      className="text-gray-200 hover:text-gray-600 hover:bg-gray-800 "
+                      className="text-gray-200 hover:text-white hover:bg-gray-800"
                       asChild
                     >
-                      <Link href={project.url} target="_blank" rel="noopener noreferrer ">
+                      <Link href={project.url} target="_blank" rel="noopener noreferrer">
+                        <GitPullRequest className="mr-2 h-4 w-4" />
                         Contribute
                       </Link>
                     </Button>
@@ -129,71 +190,158 @@ export default function ContributePage() {
           </div>
         </motion.section>
 
+        {/* Submit Your Project Section - New */}
         <motion.section 
-          className="mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          className="space-y-8"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
         >
           <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-gray-100">
-                <GitBranch className="h-6 w-6" />
-                How to Get Started
+                <PlusCircle className="h-6 w-6 text-green-400" />
+                Submit Your Open Source Project
               </CardTitle>
+              <CardDescription className="text-gray-400">
+                Have an open source project that could benefit the community? Submit it to be featured on bit0git!
+              </CardDescription>
             </CardHeader>
-            <CardContent>
-              <ol className="list-decimal list-inside space-y-4">
-                <li className="flex items-start gap-2">
-                  <GitBranch className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Fork the repository on GitHub</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <GitPullRequest className="h-5 w-5 text-green-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Clone your fork locally and create a new branch</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Book className="h-5 w-5 text-yellow-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Make your changes and test them locally</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Star className="h-5 w-5 text-purple-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Submit a pull request with a detailed description</span>
-                </li>
-              </ol>
+            <CardContent className="space-y-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-gray-100">Project Requirements</h3>
+                  <ul className="space-y-3 text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <Zap className="h-5 w-5 text-yellow-400 mt-1" />
+                      Must be open source and publicly accessible
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Heart className="h-5 w-5 text-red-400 mt-1" />
+                      Should have clear documentation and contribution guidelines
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Globe className="h-5 w-5 text-blue-400 mt-1" />
+                      Must be actively maintained and community-friendly
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Award className="h-5 w-5 text-purple-400 mt-1" />
+                      Should align with our mission of making development accessible
+                    </li>
+                  </ul>
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-gray-100">Submission Process</h3>
+                  <ol className="space-y-3 text-gray-300">
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-medium">1.</span>
+                      Create a detailed issue on our GitHub repository
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-medium">2.</span>
+                      Include project description, tech stack, and goals
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-medium">3.</span>
+                      Add links to repository and documentation
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-blue-400 font-medium">4.</span>
+                      Wait for community review and approval
+                    </li>
+                  </ol>
+                </div>
+              </div>
             </CardContent>
+            <CardFooter className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+                asChild
+              >
+                <Link href="https://github.com/priyanka-deshmukh8/BitOGit/issues/new" target="_blank" rel="noopener noreferrer">
+                  <PlusCircle className="mr-2 h-4 w-4" />
+                  Submit Project
+                </Link>
+              </Button>
+              <Button 
+                variant="outline" 
+                className="border-gray-700 hover:border-gray-600"
+                asChild
+              >
+                <Link href="https://github.com/priyanka-deshmukh8/BitOGit/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">
+                  <Book className="mr-2 h-4 w-4" />
+                  View Guidelines
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         </motion.section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+        {/* How to Get Started - Enhanced */}
+        <motion.section 
+          className="space-y-8"
+          variants={staggerContainer}
+          initial="initial"
+          animate="animate"
         >
           <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2 text-gray-100">
-                <Star className="h-6 w-6" />
-                Looking for Ideas?
+                <Terminal className="h-6 w-6 text-blue-400" />
+                How to Get Started
               </CardTitle>
+              <CardDescription className="text-gray-400">
+                Follow these steps to start contributing to our projects
+              </CardDescription>
             </CardHeader>
             <CardContent>
-              <p className="mb-4 text-gray-200">Check out the open issues on our GitHub page, or pick one of these contribution ideas:</p>
-              <ul className="list-disc list-inside space-y-4">
-                <li className="flex items-start gap-2">
-                  <Book className="h-5 w-5 text-blue-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Enhance documentation and learning resources</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <GitPullRequest className="h-5 w-5 text-green-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300">Improve the UI and user experience</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <Star className="h-5 w-5 text-yellow-400 mt-1 flex-shrink-0" />
-                  <span className="text-gray-300"  >Suggest new features or topics to cover</span>
-                </li>
-              </ul>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-gray-100">Basic Steps</h3>
+                  <ol className="space-y-4">
+                    {[
+                      { icon: <GitBranch className="h-5 w-5 text-blue-400" />, text: "Fork the repository on GitHub" },
+                      { icon: <GitPullRequest className="h-5 w-5 text-green-400" />, text: "Clone your fork locally and create a new branch" },
+                      { icon: <GitCommit className="h-5 w-5 text-yellow-400" />, text: "Make your changes and test them locally" },
+                      { icon: <GitMerge className="h-5 w-5 text-purple-400" />, text: "Submit a pull request with a detailed description" }
+                    ].map((step, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="mt-1">{step.icon}</div>
+                        <span className="text-gray-300">{step.text}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-semibold text-gray-100">Looking for Ideas?</h3>
+                  <ul className="space-y-4">
+                    {[
+                      { icon: <Book className="h-5 w-5 text-blue-400" />, text: "Enhance documentation and learning resources" },
+                      { icon: <Code2 className="h-5 w-5 text-green-400" />, text: "Improve the UI and user experience" },
+                      { icon: <Star className="h-5 w-5 text-yellow-400" />, text: "Suggest new features or topics to cover" },
+                      { icon: <Users className="h-5 w-5 text-purple-400" />, text: "Help with community engagement and support" }
+                    ].map((idea, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <div className="mt-1">{idea.icon}</div>
+                        <span className="text-gray-300">{idea.text}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </CardContent>
+            <CardFooter className="flex justify-center border-t border-gray-700 pt-6">
+              <Button 
+                variant="outline" 
+                className="border-gray-700 hover:border-gray-600"
+                asChild
+              >
+                <Link href="https://github.com/priyanka-deshmukh8/BitOGit/issues" target="_blank" rel="noopener noreferrer">
+                  <Github className="mr-2 h-4 w-4" />
+                  View Open Issues
+                </Link>
+              </Button>
+            </CardFooter>
           </Card>
         </motion.section>
       </div>

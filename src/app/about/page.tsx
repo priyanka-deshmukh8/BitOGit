@@ -414,35 +414,6 @@ export default function AboutPage() {
           </Card>
         </motion.section>
       </main>
-
-      <footer className="border-t border-gray-800 mt-16 bg-gradient-to-b from-gray-900 to-black">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <GitBranch className="w-6 h-6 text-blue-400" />
-                <span className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
-                  bit0git
-                </span>
-              </div>
-              <p className="text-gray-500 max-w-md">
-                Making Git learning accessible and enjoyable for developers worldwide.
-              </p>
-            </div>
-            <nav className="flex flex-wrap gap-6">
-              <Link href="/learn" className="text-gray-400 hover:text-gray-300 transition-colors">Learn</Link>
-              <Link href="/contribute" className="text-gray-400 hover:text-gray-300 transition-colors">Contribute</Link>
-              <Link href="/community" className="text-gray-400 hover:text-gray-300 transition-colors">Community</Link>
-              <Link href="https://github.com/priyanka-deshmukh8/BitOGit" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors">
-                GitHub
-              </Link>
-            </nav>
-          </div>
-          <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500">
-            <p>© {new Date().getFullYear()} bit0git. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
