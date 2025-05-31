@@ -30,7 +30,7 @@ const staggerContainer = {
 
 export default function CommunityPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-800 text-gray-300">
+    <div className="min-h-screen bg-background dark:bg-gradient-to-br dark:from-gray-900 dark:via-black dark:to-gray-800 text-foreground dark:text-gray-300">
       <div className="container mx-auto px-4 py-12 space-y-16">
         {/* Hero Section */}
         <motion.section 
@@ -39,14 +39,14 @@ export default function CommunityPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-block p-2 px-4 rounded-full bg-gray-800/50 border border-gray-700 mb-4">
-            <Users className="w-6 h-6 inline-block mr-2 text-blue-400" />
-            <span className="text-sm font-medium text-gray-300">Join Our Community</span>
+          <div className="inline-block p-2 px-4 rounded-full bg-muted dark:bg-gray-800/50 border border-border dark:border-gray-700 mb-4">
+            <Users className="w-6 h-6 inline-block mr-2 text-primary dark:text-blue-400" />
+            <span className="text-sm font-medium text-foreground dark:text-gray-300">Join Our Community</span>
           </div>
-          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-blue-400 to-purple-400">
+          <h1 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-foreground via-primary to-primary/80 dark:from-gray-100 dark:via-blue-400 dark:to-purple-400">
             bit0git Community
           </h1>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto">
             Connect with fellow developers, share knowledge, and grow together in our vibrant open-source community.
           </p>
         </motion.section>
@@ -59,21 +59,21 @@ export default function CommunityPage() {
           animate="animate"
         >
           {[
-            { icon: <Users className="h-6 w-6 text-blue-400" />, label: "Community Members", value: "1000+" },
-            { icon: <GitPullRequest className="h-6 w-6 text-green-400" />, label: "Pull Requests", value: "200+" },
-            { icon: <MessageSquare className="h-6 w-6 text-purple-400" />, label: "Discord Members", value: "500+" },
-            { icon: <Star className="h-6 w-6 text-yellow-400" />, label: "GitHub Stars", value: "100+" }
+            { icon: <Users className="h-6 w-6 text-primary dark:text-blue-400" />, label: "Community Members", value: "1000+" },
+            { icon: <GitPullRequest className="h-6 w-6 text-primary dark:text-green-400" />, label: "Pull Requests", value: "200+" },
+            { icon: <MessageSquare className="h-6 w-6 text-primary dark:text-purple-400" />, label: "Discord Members", value: "500+" },
+            { icon: <Star className="h-6 w-6 text-primary dark:text-yellow-400" />, label: "GitHub Stars", value: "100+" }
           ].map((stat, index) => (
             <motion.div 
               key={index} 
               variants={fadeInUp}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 text-center border border-gray-700 hover:border-gray-600 transition-colors"
+              className="bg-card/50 dark:bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 text-center border border-border dark:border-gray-700 hover:border-primary/50 dark:hover:border-gray-600 transition-colors"
             >
               <div className="flex justify-center mb-3">{stat.icon}</div>
-              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
+              <div className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80 dark:from-blue-400 dark:to-purple-400">
                 {stat.value}
               </div>
-              <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
+              <div className="text-sm text-muted-foreground dark:text-gray-400 mt-2">{stat.label}</div>
             </motion.div>
           ))}
         </motion.section>
@@ -95,12 +95,12 @@ export default function CommunityPage() {
               color: "bg-[#5865F2] hover:bg-[#4752C4]"
             },
             {
-              icon: <SiGithub className="h-8 w-8 text-gray-300" />,
+              icon: <SiGithub className="h-8 w-8 text-foreground dark:text-gray-300" />,
               title: "GitHub Organization",
               description: "Contribute to our open-source projects, report issues, and collaborate with other developers.",
               link: "https://github.com/priyanka-deshmukh8/BitOGit",
               buttonText: "View on GitHub",
-              color: "bg-gray-700 hover:bg-gray-600"
+              color: "bg-muted hover:bg-muted/80 dark:bg-gray-700 dark:hover:bg-gray-600"
             },
             {
               icon: <FaTwitter className="h-8 w-8 text-[#1DA1F2]" />,
@@ -112,17 +112,17 @@ export default function CommunityPage() {
             }
           ].map((platform, index) => (
             <motion.div key={index} variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg h-full">
+              <Card className="bg-card dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border-border dark:border-gray-700 shadow-lg h-full">
                 <CardHeader>
                   <div className="mb-4">{platform.icon}</div>
-                  <CardTitle className="text-xl font-bold text-gray-100">{platform.title}</CardTitle>
+                  <CardTitle className="text-xl font-bold text-foreground dark:text-gray-100">{platform.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-gray-400">{platform.description}</p>
+                  <p className="text-muted-foreground dark:text-gray-400">{platform.description}</p>
                 </CardContent>
                 <CardFooter>
                   <Button 
-                    className={`w-full ${platform.color} text-white`}
+                    className={`w-full ${platform.color} text-primary-foreground dark:text-white`}
                     asChild
                   >
                     <Link href={platform.link} target="_blank" rel="noopener noreferrer">
@@ -142,36 +142,36 @@ export default function CommunityPage() {
           initial="initial"
           animate="animate"
         >
-          <h2 className="text-3xl font-bold text-center text-gray-100">Community Guidelines</h2>
+          <h2 className="text-3xl font-bold text-center text-foreground dark:text-gray-100">Community Guidelines</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <motion.div variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
+              <Card className="bg-card dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border-border dark:border-gray-700 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold text-gray-100">
-                    <Heart className="h-5 w-5 text-red-400" />
+                  <CardTitle className="flex items-center gap-2 text-xl font-bold text-foreground dark:text-gray-100">
+                    <Heart className="h-5 w-5 text-primary dark:text-red-400" />
                     Code of Conduct
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-gray-300">
+                  <ul className="space-y-3 text-muted-foreground dark:text-gray-300">
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-primary dark:text-red-400">•</span>
                       Be respectful and inclusive to all members
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-primary dark:text-red-400">•</span>
                       Use appropriate channels for different topics
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-primary dark:text-red-400">•</span>
                       Avoid spamming or self-promotion
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-primary dark:text-red-400">•</span>
                       Encourage constructive feedback and collaboration
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-red-400">•</span>
+                      <span className="text-primary dark:text-red-400">•</span>
                       Follow Discord&apos;s Community Guidelines
                     </li>
                   </ul>
@@ -180,33 +180,33 @@ export default function CommunityPage() {
             </motion.div>
 
             <motion.div variants={fadeInUp}>
-              <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
+              <Card className="bg-card dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border-border dark:border-gray-700 shadow-lg">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-xl font-bold text-gray-100">
-                    <Award className="h-5 w-5 text-yellow-400" />
+                  <CardTitle className="flex items-center gap-2 text-xl font-bold text-foreground dark:text-gray-100">
+                    <Award className="h-5 w-5 text-primary dark:text-yellow-400" />
                     Community Values
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <ul className="space-y-3 text-gray-300">
+                  <ul className="space-y-3 text-muted-foreground dark:text-gray-300">
                     <li className="flex items-start gap-2">
-                      <span className="text-yellow-400">•</span>
+                      <span className="text-primary dark:text-yellow-400">•</span>
                       Foster a supportive learning environment
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-yellow-400">•</span>
+                      <span className="text-primary dark:text-yellow-400">•</span>
                       Share knowledge and help others grow
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-yellow-400">•</span>
+                      <span className="text-primary dark:text-yellow-400">•</span>
                       Celebrate diversity and different perspectives
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-yellow-400">•</span>
+                      <span className="text-primary dark:text-yellow-400">•</span>
                       Maintain professional and constructive discussions
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-yellow-400">•</span>
+                      <span className="text-primary dark:text-yellow-400">•</span>
                       Contribute positively to the open-source community
                     </li>
                   </ul>
@@ -223,7 +223,7 @@ export default function CommunityPage() {
           initial="initial"
           animate="animate"
         >
-          <h2 className="text-3xl font-bold text-center text-gray-100">Upcoming Events</h2>
+          <h2 className="text-3xl font-bold text-center text-foreground dark:text-gray-100">Upcoming Events</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
@@ -231,48 +231,48 @@ export default function CommunityPage() {
                 date: "Every Saturday",
                 time: "10:00 AM UTC",
                 description: "Interactive workshop covering Git fundamentals and advanced topics.",
-                icon: <GitBranch className="h-6 w-6 text-blue-400" />
+                icon: <GitBranch className="h-6 w-6 text-primary dark:text-blue-400" />
               },
               {
                 title: "Community Meetup",
                 date: "First Friday Monthly",
                 time: "6:00 PM UTC",
                 description: "Virtual meetup for community members to connect and share experiences.",
-                icon: <Users className="h-6 w-6 text-purple-400" />
+                icon: <Users className="h-6 w-6 text-primary dark:text-purple-400" />
               },
               {
                 title: "Code Review Session",
                 date: "Every Wednesday",
                 time: "4:00 PM UTC",
                 description: "Group code review session for open-source contributions.",
-                icon: <GitPullRequest className="h-6 w-6 text-green-400" />
+                icon: <GitPullRequest className="h-6 w-6 text-primary dark:text-green-400" />
               },
               {
                 title: "Contributor Onboarding",
                 date: "Last Sunday Monthly",
                 time: "2:00 PM UTC",
                 description: "Session for new contributors to learn about our projects and contribution process.",
-                icon: <GitCommit className="h-6 w-6 text-yellow-400" />
+                icon: <GitCommit className="h-6 w-6 text-primary dark:text-yellow-400" />
               }
             ].map((event, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg hover:border-gray-600 transition-colors">
+                <Card className="bg-card dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border-border dark:border-gray-700 shadow-lg hover:border-primary/50 dark:hover:border-gray-600 transition-colors">
                   <CardHeader>
                     <div className="flex items-center gap-3">
                       {event.icon}
                       <div>
-                        <CardTitle className="text-xl font-bold text-gray-100">{event.title}</CardTitle>
-                        <CardDescription className="text-gray-400">
+                        <CardTitle className="text-xl font-bold text-foreground dark:text-gray-100">{event.title}</CardTitle>
+                        <CardDescription className="text-muted-foreground dark:text-gray-400">
                           {event.date} at {event.time}
                         </CardDescription>
                       </div>
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-300">{event.description}</p>
+                    <p className="text-muted-foreground dark:text-gray-300">{event.description}</p>
                   </CardContent>
                   <CardFooter>
-                    <Button variant="outline" className="w-full border-gray-700 hover:border-gray-600">
+                    <Button variant="outline" className="w-full border-border dark:border-gray-700 hover:border-primary/50 dark:hover:border-gray-600">
                       Add to Calendar
                     </Button>
                   </CardFooter>
@@ -289,17 +289,17 @@ export default function CommunityPage() {
           initial="initial"
           animate="animate"
         >
-          <Card className="bg-gradient-to-br from-gray-800 to-gray-900 border-gray-700 shadow-lg">
+          <Card className="bg-card dark:bg-gradient-to-br dark:from-gray-800 dark:to-gray-900 border-border dark:border-gray-700 shadow-lg">
             <CardContent className="pt-8 pb-8">
-              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+              <h2 className="text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80 dark:from-blue-400 dark:to-purple-400 mb-4">
                 Ready to Join Our Community?
               </h2>
-              <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+              <p className="text-muted-foreground dark:text-gray-400 max-w-2xl mx-auto mb-8">
                 Connect with fellow developers, share your knowledge, and grow together in our supportive community.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  className="bg-[#5865F2] hover:bg-[#4752C4] text-white"
+                  className="bg-[#5865F2] hover:bg-[#4752C4] text-primary-foreground dark:text-white"
                   asChild
                 >
                   <Link href="https://discord.gg/68FqnUFfMf" target="_blank" rel="noopener noreferrer">
@@ -309,7 +309,7 @@ export default function CommunityPage() {
                 </Button>
                 <Button 
                   variant="outline" 
-                  className="border-gray-700 hover:border-gray-600"
+                  className="border-border dark:border-gray-700 hover:border-primary/50 dark:hover:border-gray-600"
                   asChild
                 >
                   <Link href="/contribute">
