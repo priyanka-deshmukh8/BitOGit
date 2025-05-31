@@ -89,7 +89,7 @@ const GitTree: React.FC<GitTreeProps> = ({ commits, branches, currentBranch }) =
 
                 {/* Commit node and info */}
                 <div className="flex items-start space-x-4">
-                  {/* Commit node */}
+                {/* Commit node */}
                   <div className={`relative z-10 flex-shrink-0 ${isCurrentBranch ? 'scale-110' : ''}`}>
                     <div 
                       className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
@@ -99,25 +99,25 @@ const GitTree: React.FC<GitTreeProps> = ({ commits, branches, currentBranch }) =
                       }`}
                     >
                       {isMergeCommit ? (
-                        <GitMerge className="w-4 h-4 text-white" />
-                      ) : (
-                        <GitCommit className="w-4 h-4 text-white" />
-                      )}
-                    </div>
-                    {isCurrentBranch && (
+                      <GitMerge className="w-4 h-4 text-white" />
+                    ) : (
+                      <GitCommit className="w-4 h-4 text-white" />
+                    )}
+                  </div>
+                  {isCurrentBranch && (
                       <GitBranch 
                         className={`w-4 h-4 absolute -right-2 -top-2 ${color}`}
                         style={{ transform: 'rotate(45deg)' }}
                       />
-                    )}
-                  </div>
+                  )}
+                </div>
 
-                  {/* Commit info */}
+                {/* Commit info */}
                   <div className="flex-grow bg-gray-800 p-3 rounded-lg shadow-lg border border-gray-700 hover:border-gray-600 transition-colors">
                     <div className="flex items-center justify-between mb-1">
-                      <div className="text-sm font-mono text-gray-400">{commit.id.slice(0, 7)}</div>
+                  <div className="text-sm font-mono text-gray-400">{commit.id.slice(0, 7)}</div>
                       <div className="text-xs text-gray-500">
-                        {new Date(commit.timestamp).toLocaleString()}
+                    {new Date(commit.timestamp).toLocaleString()}
                       </div>
                     </div>
                     <div className="text-gray-300 break-words">{commit.message}</div>

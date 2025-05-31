@@ -124,26 +124,26 @@ const GitTerminal: React.FC<GitTerminalProps> = ({
         }}
       >
         <div className="space-y-1">
-          <AnimatePresence>
-            {output.map((line, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.2 }}
+        <AnimatePresence>
+          {output.map((line, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
                 className={`whitespace-pre-wrap break-words ${
-                  line.startsWith('$') 
-                    ? 'text-green-400' 
-                    : line.startsWith('error') 
-                      ? 'text-red-400' 
-                      : 'text-gray-300'
-                }`}
-              >
-                {line}
-              </motion.div>
-            ))}
-          </AnimatePresence>
+                line.startsWith('$') 
+                  ? 'text-green-400' 
+                  : line.startsWith('error') 
+                    ? 'text-red-400' 
+                    : 'text-gray-300'
+              }`}
+            >
+              {line}
+            </motion.div>
+          ))}
+        </AnimatePresence>
         </div>
       </div>
 
